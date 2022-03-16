@@ -1,0 +1,11 @@
+.tableHeader {
+}
+
+.tableHeader__th {
+    border: 2px solid #000;
+}
+
+.tableHeader__th:hover {
+    border-color: red;
+    background-color: yellow;
+}
