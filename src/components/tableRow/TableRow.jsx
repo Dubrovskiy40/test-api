@@ -1,15 +1,17 @@
 import style from './tableRow.module.css';
 import TableCell from "../tableCell/TableCell";
 
-const TableRow = ({ dataValue }) => {
+const TableRow = ({ dataValue, handleShow }) => {
+
+    let difference = ((dataValue.Previous * 100 / dataValue.Value) - 100).toFixed(2);
 
     return (
-        <div className={style.tableRow}>
-            <TableCell item={dataValue.NumCode} />
-            <TableCell item={dataValue.Name} />
-            <TableCell item={dataValue.Value} />
-            <TableCell item={dataValue.Previous} />
-        </div>
+        <tr className={style.tableRow} title={dataValue.Name} onClick={handleShow}>
+            <TableCell className={style.tableRow__tr} item={dataValue.NumCode} />
+            <TableCell className={style.tableRow__tr} item={dataValue.CharCode} />
+            <TableCell className={style.tableRow__tr} item={dataValue.Value} />
+            <TableCell className={style.tableRow__tr} item={difference} />
+        </tr>
     );
 };
 
